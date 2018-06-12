@@ -2,3 +2,115 @@ extends _layouts/base
 
 block content
     main.home
+        form.form
+            section.home__step(data-id="step1")
+                .container
+                    .row
+                        .col-xs-24.col-md-20.col-md-offset-2
+                            .home__step__heading
+                                .row
+                                    .col-xs-16.col-sm-18
+                                        h1.home__step__title
+                                            span Paso 1
+                                            strong vehículo
+                                        p.home__step__desc Ingrese la información del vehículo
+                                    .col-xs-8.col-sm-6
+                                    
+                            .home__step__body
+                                .row
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                - for (var year = 2018; year > 2008; --year) {
+                                                    option=(year)
+                                                - }
+                                        .form__group
+                                            input.form__input.form__input--checkbox(type="checkbox", id="step1-0km")
+                                            label.form__label(for="step1-0km") ¿0 KM?
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                each item in site.data.home.marcas
+                                                    option=item
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                - for (var i = 0; i < 8; i++) {
+                                                    option
+                                                        | Modelo #{i}
+                                                - }
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                each item in site.data.home.version
+                                                    option=item
+                                                
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input.form__input--checkbox(type="checkbox", id="step1-garage")
+                                            label.form__label(for="step1-garage") ¿Se guarda en garage?
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Código Postal")
+                                        .form__group
+                                            label.form__label KMS Anuales Recorridos
+                                            .form__group--radio
+                                                input.form__input.form__input--radio(type="radio", id="step1-25kms", name="step1-kms")
+                                                label.form__label(for="step1-25kms") Hasta 25.000 kms
+                                            .form__group--radio
+                                                input.form__input.form__input--radio(type="radio", id="step1+25kms", name="step1-kms")
+                                                label.form__label(for="step1+25kms") Más de 25.000 kms
+                                                
+                                    .col-xs-24.col-sm-8
+                                    .col-xs-24.col-sm-8.col-sm-offset-16
+                    
+                    .row.nopadding
+                        .col-xs-24
+                            .home__step__footer
+                                span
+                                span
+                                span
+                        
+            section.home__step(data-id="step2")
+                .container
+                    .row
+                        .col-xs-24.col-md-20.col-md-offset-2
+                            .home__step__heading
+                                .row
+                                    .col-xs-16.col-sm-18
+                                    .col-xs-8.col-sm-6
+                                    
+                    .row.nopadding
+                        .col-xs-24
+                            .home__step__footer
+                                span
+                                span
+                                span
+                                    
+            section.home__step(data-id="step3")
+                .container
+                    .row
+                        .col-xs-24.col-md-20.col-md-offset-2
+                            .home__step__heading
+                                .row
+                                    .col-xs-16.col-sm-18
+                                    .col-xs-8.col-sm-6
+                                    
+                    .row.nopadding
+                        .col-xs-24
+                            .home__step__footer
+                                span
+                                span
+                                span
+                                    
+            section.home__step(data-id="step4")
+                .container
+                    .row
+                        .col-xs-24.col-md-20.col-md-offset-2
+                            .home__step__heading
+                                .row
+                                    .col-xs-16.col-sm-18
+                                    .col-xs-8.col-sm-6
+                                    
+                    .row.nopadding
+                        .col-xs-24
+                            .home__step__footer
+                                span
+                                span
+                                span
