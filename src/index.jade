@@ -50,16 +50,41 @@ block content
                                             input.form__input(type="text", placeholder="Código Postal")
                                         .form__group
                                             label.form__label KMS Anuales Recorridos
-                                            .form__group--radio
-                                                input.form__input.form__input--radio(type="radio", id="step1-25kms", name="step1-kms")
-                                                label.form__label(for="step1-25kms") Hasta 25.000 kms
-                                            .form__group--radio
-                                                input.form__input.form__input--radio(type="radio", id="step1+25kms", name="step1-kms")
-                                                label.form__label(for="step1+25kms") Más de 25.000 kms
+                                        .form__group.form__group--radio
+                                            input.form__input.form__input--radio(type="radio", id="step1-25kms", name="step1-kms")
+                                            label.form__label(for="step1-25kms") Hasta 25.000 kms
+                                        .form__group.form__group--radio
+                                            input.form__input.form__input--radio(type="radio", id="step1+25kms", name="step1-kms")
+                                            label.form__label(for="step1+25kms") Más de 25.000 kms
                                                 
                                     .col-xs-24.col-sm-8
+                                        .form__group
+                                            label.form__label Accesorios No Originales
+                                        .form__group
+                                            .form__group.form__group--checkbox
+                                                input.form__input.form__input--checkbox(type="checkbox", id="step1-gnc")
+                                                label.form__label(for="step1-gnc") Equipo GNC
+                                            input.form__input.form__input--amount(type="text")
+                                        .form__group
+                                            .form__group.form__group--checkbox
+                                                input.form__input.form__input--checkbox(type="checkbox", id="step1-llantas")
+                                                label.form__label(for="step1-llantas") 5 llantas no originales
+                                            input.form__input.form__input--amount(type="text")
+                                        .form__group
+                                            .form__group.form__group--checkbox
+                                                input.form__input.form__input--checkbox(type="checkbox", id="step1-cristales")
+                                                label.form__label(for="step1-cristales") Alza cristales eléctricos
+                                            input.form__input.form__input--amount(type="text")
+                                        .form__group
+                                            input.form__input.form__input--checkbox(type="checkbox", id="step1-minor")
+                                            label.form__label(for="step1-minor") ¿Conductores menores a 25 años?
+                                            
                                     .col-xs-24.col-sm-8.col-sm-offset-16
-                    
+                                        .home__catpcha
+                                            img.img-reponsive(src="/images/home/captcha.png")
+                                        .form__group
+                                            a.form__step__next(href="#", data-target="step2") Cotizar
+                                            
                     .row.nopadding
                         .col-xs-24
                             .home__step__footer
@@ -74,7 +99,44 @@ block content
                             .home__step__heading
                                 .row
                                     .col-xs-16.col-sm-18
+                                        h1.home__step__title
+                                            span Paso 2
+                                            strong comparar
+                                        p.home__step__desc Compara las companias y encontra el plan que mejor se adapte
                                     .col-xs-8.col-sm-6
+                                        .home__step__tag
+                                            p
+                                                span ¿Buscás
+                                                ! mejorar el precio de tu seguro?
+                                                
+                            .home__step__body
+                                .row
+                                    .col-xs-24
+                                        each item, index in site.data.home.seguros
+                                            .home__insurance
+                                                input.home__insurance__heading(type="radio", id="seguro-#{index + 1}")
+                                                label.home__insurance__name(for="seguro-#{index + 1}") item.name
+                                                .home__insurance__body
+                                                    .home__insurance__items
+                                                        .home__insurance__items__logo
+                                                            img(src=item.logo)
+                                                        .home__insurance__items__choice.home__insurance__items__choice--top
+                                                            h4.home__insurance__items__choice--top__title Recomendado
+                                                            p.home__insurance__items__choice__desc Terceros completos (Sin daños parciales)
+                                                            p.home__insurance__items__choice__price $2.736
+                                                            a(href="#", data-target="step3") Contratar
+                                                        .home__insurance__items__choice
+                                                            p.home__insurance__items__choice__desc Todo riesgo con franquicia
+                                                            p.home__insurance__items__choice__price $3.736
+                                                            a(href="#", data-target="step3") Contratar
+                                                        .home__insurance__items__choice
+                                                            p.home__insurance__items__choice__desc Responsabilidad civil
+                                                            p.home__insurance__items__choice__price $1.736
+                                                            a(href="#", data-target="step3") Contratar
+                                                        .home__insurance__items__choice
+                                                            p.home__insurance__items__choice__desc Responsabilidad Civil + RoboO Hurto Total
+                                                            p.home__insurance__items__choice__price $2.136
+                                                            a.form__step__next(href="#", data-target="step3") Contratar
                                     
                     .row.nopadding
                         .col-xs-24
@@ -90,7 +152,137 @@ block content
                             .home__step__heading
                                 .row
                                     .col-xs-16.col-sm-18
+                                        h1.home__step__title
+                                            span Paso 3
+                                            strong
+                                                ! contratar  
+                                                span Provincia Seguros
+                                        p.home__step__desc INGRESE LA Información del propietario
                                     .col-xs-8.col-sm-6
+                                        .home__step__tag
+                                            p
+                                                span ¿Buscás
+                                                ! mejorar el precio de tu seguro?
+                                    
+                            .home__step__body
+                                .row
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Nombre")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Apellido")
+                                    .col-sm-8.hidden-xs
+                                        label.form__label Fecha de Nacimiento
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="DNI")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Sexo
+                                                option Femenino
+                                                option Masculino
+                                    .col-xs-24.col-sm-8
+                                        label.form__label.form__label--date Fecha de Nacimiento
+                                        .form__group.form__group--date
+                                            select.form__input.form__input--select
+                                                option DD
+                                                option 01
+                                                option 02
+                                            select.form__input.form__input--select
+                                                option MM
+                                                option 01
+                                                option 02
+                                            select.form__input.form__input--select
+                                                option AAAA
+                                                option 1998
+                                                option 1999
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Estado civil
+                                                option Soltero
+                                                option Casado
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Nacionalidad
+                                                option Nacionalidad 1
+                                                option Nacionalidad 2
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Profesión
+                                                option Profesión 1
+                                                option Profesión 2
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Email")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Celular")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Teléfono fijo")
+                                            
+                                .row
+                                    .col-xs-24
+                                        label.form__label Domicilio
+                                    .col-xs-24.col-sm-16
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Calle")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Numero")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Provincia
+                                                option Provincia 1
+                                                option Provincia 2
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            select.form__input.form__input--select
+                                                option Localidad
+                                                option Localidad 1
+                                                option Localidad 2
+                                    .col-xs-24.col-sm-8
+                                        .form__group.form__group--address
+                                            input.form__input(type="text", placeholder="Piso")
+                                            input.form__input(type="text", placeholder="Departamento")
+                                            input.form__input(type="text", placeholder="Unidad")
+                                
+                                .row
+                                    .col-xs-24
+                                        label.form__label Vehículo
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="Patente")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="NRO MOTOR")
+                                    .col-xs-24.col-sm-8
+                                        .form__group
+                                            input.form__input(type="text", placeholder="NRO CHASIS")
+                                            
+                                .row
+                                    .col-xs-24
+                                        label.form__label Forma de pago
+                                    .col-xs-24
+                                        .form__group
+                                            span Cómo querés pagar?
+                                            .form__group.form__group--radio
+                                                input.form__input.form__input--radio(type="radio", id="step3debit", name="step3-payment")
+                                                label.form__label(for="step3debit") Tarjetas de crédito
+                                            .form__group.form__group--radio
+                                                input.form__input.form__input--radio(type="radio", id="step3credit", name="step3-payment")
+                                                label.form__label(for="step3credit") Débito en cuenta
+                                    .col-sm-10
+                                        .form__group
+                                            a.form__step__prev(href="#", data-target="step3") Volver
+                                            button.form__step__next(type="submit", data-target="step4") Volver
+                                            
                                     
                     .row.nopadding
                         .col-xs-24
@@ -107,6 +299,12 @@ block content
                                 .row
                                     .col-xs-16.col-sm-18
                                     .col-xs-8.col-sm-6
+                                    
+                            .home__step__body
+                                .row
+                                    .col-xs-24
+                                        h1 Todo listo!
+                                        p 
                                     
                     .row.nopadding
                         .col-xs-24
